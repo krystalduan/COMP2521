@@ -1,0 +1,33 @@
+Input      Initial    Number     Avg Time           Avg Time
+Size       Order      of Runs    for sortIntList    for sort
+10000      random     5          0.62               0.00
+10000      sorted     5          1.21               0.00
+10000      reverse    5          0.012              0.00
+20000      random     5          2.50              0.012
+20000      sorted     5          4.77              0.00
+20000      reverse    5          0.03              0.00
+40000      random     5          10.57              0.038
+40000      sorted     5          19.0              0.004
+40000      reverse    5          0.05              0.006
+100000     random     5          77.02              0.058
+100000     sorted     5          118.44             0.018
+100000     reverse    5          0.10              0.02
+150000     random     3          181.32             0.17
+150000     sorted     3          266.46             0.04
+150000     reverse    3          0.15               0.03
+200000     random     3          334.61             0.18 
+200000     sorted     3          320.88             0.05
+200000     reverse    2          0.21               0.05
+Explanation of timing results:
+
+Linux's sort command uses a mergesort which has a time complexity of O(n*log(n))
+while the time complexity of IntListSorted is O(n).
+
+When the values are in reverse order, it is more efficient because it only needs to 
+insert the new head at the head pointer. 
+When the values are already sorted, the new node is always inserted at the tail of the list, 
+and then q->tail is changed. 
+This is also quite efficient and faster than when the input is 
+random, since multiple actions need to take place. 
+
+

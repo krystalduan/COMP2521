@@ -1,0 +1,121 @@
+
+========================================================================
+                          Complexity Analysis
+========================================================================
+
+NOTE:
+- Your time complexities should be in big-O notation.
+- For operations that involve only one set, your time complexities should
+  be in terms of n, where n is the number of elements in the set.
+- For operations that involve two sets, your time complexities should be in
+  terms of n and m, where n and m are the number of elements in each of the
+  sets respectively.
+
+--------
+TreeKthSmallest
+--------
+
+Worst case complexity: O(log(n) + m)
+
+Explanation: 
+For an AVL tree, the time complexity should be O(log(n) + m) where n is the total number of nodes 
+in the tree and m is the Kth smallest value. 
+
+This is because the algorithm traverses left of the tree first, and only when it can't find it in
+the left subtree of the root does it start to traverse the right side of the tree (and subtrees). 
+This is a binary search, and thus for the average case the time complexity will be O(log(n)) to 
+traverse the tree to find the Kth value. 
+
+Once found, the function returns back to the first call. The number of returns is equal to k. 
+Considering the traversal and the returns, the time complexity will be O(log(n) + m for the 
+average cases. 
+
+The worst case would be when m equals the number of nodes that exist.
+When m = n, the algorithm will have to traverse the entire tree from the smallest value 
+to the largest. In this case O(log(n) + m)= O(log(n) + n), which is equivalent to O(n).
+
+---------------
+TreeKthLargest
+---------------
+
+Worst case complexity: O(log(n) + m)
+
+Explanation: 
+For an AVL tree, the time complexity should be O(log(n) + m) where n is the total number of nodes 
+in the tree and m is the Kth largest value. 
+
+This is because the algorithm traverses right side of the tree first, and only when it can't 
+find it in the right subtree of the root/node does it start to traverse the left subtrees. 
+This is a binary search, and thus for the average case the time complexity will be O(log(n)) to 
+traverse the tree to find the Kth value. 
+
+Once found, the function returns back to the first call. The number of returns is equal to k. 
+Considering the traversal and the returns, the time complexity will be O(log(n) + m) for the 
+average cases. 
+
+The worst case would be when m equals the number of nodes that exist.
+When m = n, the algorithm will have to traverse the entire tree from the smallest value 
+to the largest. In this case O(log(n) + m)= O(log(n) + n), which is equivalent to O(n).
+
+-------------
+TreeLCA
+-------------
+
+Worst case complexity: O(log(n))
+
+Explanation: 
+In the worst case, the lowest common ancestor is the root of the tree, which means that the function
+must traverse down the entire way to a leaf node to find it. This is equivalent to traversing 
+the height of the tree, making it O(h).
+However, since this is an AVL tree, the worst time complexity should be O(log(n)) since the height 
+of a balanced binary search tree is O(log(n)). The average time complexity should also be O(log(n))
+ for this function. 
+
+-------------
+TreeFloor
+-------------
+
+Worst case complexity: O(log(n))
+
+Explanation: 
+The function completes an In-Order traversal until the node containing the correct value is found, 
+whereby it stops and returns.
+In the worst case, the floor value needed is a leaf node, meaning that the function will have to 
+traverse the height of the tree to find the floor value, making the worst case complexity O(h), 
+where h is the height of the tree.
+Since this is an AVL tree, the height of  the tree is O(log(n)), and thus the worst case complexity 
+in our program for the Tree Floor function is O(log(n)).
+
+-------------
+TreeCeiling
+-------------
+
+Worst case complexity: O(log(n))
+
+Explanation: 
+The function traverses from the root of the tree and saves each value where the key is smaller than 
+the value in the node. The function returns when it reaches a Null Node, meaning that the function 
+has traversed the height of the tree. 
+This means the worst case complexity will be O(h) where h is the height of the tree. 
+Since this is an AVL tree, the height if O(log(n)), and thus the worst case complexity in our program 
+for the Tree Floor function is O(log(n)).
+
+-------------
+TreeSearchBetween
+-------------
+
+Worst case complexity: O(log(n) + m)
+
+Explanation: 
+In general, the time complexity for the function is O(log(n) + m) where m is the number of nodes that are in between the given lower and 
+upper limit bounds and n is the number of nodes in the tree. Thus m is also the size of the the list returned by the function. There are k 
+number of return calls that require a list append. 
+The functions also uses a binary search to find which subtree to traverse, and since this is an AVL tree, the time complexity of this is
+always O(log(n)). 
+Considering those properties, the general time complexity of the function would be O(log(n) + m).
+
+However in the worst case scenario, all the values in the tree are between the upper and lower limits given, meaning that after finding 
+which subtrees to traverse (which is a O(log(n)) operation), it must traverse the entire tree to get every value from every node. 
+In this case, m = n, and thus the time complexity is O(log(n) + n) which is equivalent to O(n). 
+
+

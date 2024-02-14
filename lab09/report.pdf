@@ -1,0 +1,99 @@
+COMP2521 Sort Detective Lab Report
+by z5361475
+In this lab, the aim is to measure the performance of two sorting programs, without access to the code, and determine which sorting algorithm each program uses.
+Experimental Design
+I measured how each program's execution time varied as the size and initial sortedness of the input varied. I imputed numbers of different sizes (1000 - 1000000) to gauge the time complexity of the algorithm. This is because different sorting algorithms have smaller or larger time complexities. I chose these values to best show the patterns of the algorithm. 
+
+Because of the way timing works on Unix/Linux, it was necessary to repeat the same test multiple times and take the average time to see the performance.  I used a data generator to generate consistent inputs and checked that it worked using the comparison function. 
+We also investigated the stability of the sorting programs by generating some data with the same key number but followed with different words (ie. 709 ccl, 709 ccm, 708 ccn).
+
+Experimental Results
+For Program A, we observed that the algorithm takes exponentially longer with larger input values, but the times do not differ too much depending on if the input was ascending, descending or random. 
+These observations indicate that the algorithm underlying the program: 
+Has time complexity of O(n^2) no matter if its average case, best case or worst case 
+And it takes a really long time with bigger numbers
+Is unstable because it doesn’t maintain the relative order of items with equal sort keys 
+Hence it must be selection sort
+For Program B, we observed that:
+It is very fast even  with larger numbers, however the time take does not vary greatly between Ascending (best case) and descending (worst case) 
+Time complexity of O(logn)
+Is unstable because it doesn’t maintain the relative order of items with equal sort keys
+
+
+These observations indicate that the algorithm underlying the program:
+ it is very consistent each time, and it can handle very large numbers in both ascending and descending cases very fast, hence it is not quicksort. 
+Not Mergesort because it is unstable
+Hence, probably heap sort
+
+
+Conclusions
+On the basis of our experiments and our analysis above, we believe that
+sortA implements the selection sorting algorithm
+sortB implements the heap sorting algorithm
+Appendix
+
+
+
+SortA
+SortB
+1000 R
+0.00
+0.00
+1000 A
+0.00
+0.00
+1000 D
+0.00
+0.00
+10000 R
+0.15
+0.00
+10 000 A
+0.14
+0.00
+10 000 D
+0.13
+0.00
+100 000 R
+14.01
+0.02
+100 000 A
+13.99
+0.01
+100 000 D
+13.43
+0.01
+150000 R
+31.54
+0.05
+150 000 A
+31.51
+0.02
+150 000 D
+30.28
+0.02
+500 000 R
+
+
+0.19
+500 000 A
+
+
+0.09
+500 000 D
+
+
+0.09
+1 000 000 R
+
+
+0.41
+1 000 000 A
+
+
+0.21
+1 000 000 D
+
+
+0.19
+
